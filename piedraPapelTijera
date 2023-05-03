@@ -1,0 +1,63 @@
+// Este programa es el juego de Piedra, papel y tijera.
+//Por: Felix X. Pagan Gonzalez y Gustavo Lejardi
+
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+
+int main()
+{
+	int Piedra = 1;
+	int Papel = 2;
+	int Tijera = 3;
+	int userChoice;
+	int cpuChoice;
+
+	srand(time(NULL));
+
+	cpuChoice = rand() % 3 + 1;
+
+	cout << "Escoje: 1 para Piedra, 2 para Papel o 3 para Tijera." << endl;
+	cout << cpuChoice;
+	cin >> userChoice;
+
+	switch (userChoice)
+	{
+	case 1: userChoice = 1; //Piedra
+		if (userChoice && cpuChoice == 1) {
+			cout << "Empate!";
+		}
+		else if (userChoice && cpuChoice == 2) {
+			cout << "Perdiste!";
+		}
+		else {
+			cout << "Ganastes!!!";
+		}
+
+	case 2: userChoice = 2; //Papel
+		if (userChoice && cpuChoice == 1) {
+			cout << "Ganastes!!!";
+		}
+		else if (userChoice && cpuChoice == 2) {
+			cout << "Empate!";
+		}
+		else {
+			cout << "Perdistes!";
+		}
+
+	case 3: userChoice = 3; //Tijera
+		if (userChoice && cpuChoice == 1) {
+			cout << "Perdistes!";
+		}
+		else if (userChoice && cpuChoice == 2) {
+			cout << "Ganastes!!!";
+		}
+		else {
+			cout << "Empate!";
+		}
+	}
+			return 0;
+
+}
+
