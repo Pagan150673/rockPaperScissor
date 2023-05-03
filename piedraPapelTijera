@@ -24,7 +24,7 @@ int main()
 
 	switch (userChoice)
 	{
-	case 1: userChoice = 1; //Piedra
+	case 1:  //Piedra
 		if (userChoice && cpuChoice == 1) {
 			cout << "Empate!";
 		}
@@ -34,8 +34,9 @@ int main()
 		else {
 			cout << "Ganastes!!!";
 		}
+		break;
 
-	case 2: userChoice = 2; //Papel
+	case 2:  //Papel
 		if (userChoice && cpuChoice == 1) {
 			cout << "Ganastes!!!";
 		}
@@ -45,8 +46,9 @@ int main()
 		else {
 			cout << "Perdistes!";
 		}
+		break;
 
-	case 3: userChoice = 3; //Tijera
+	case 3:  //Tijera
 		if (userChoice && cpuChoice == 1) {
 			cout << "Perdistes!";
 		}
@@ -56,8 +58,9 @@ int main()
 		else {
 			cout << "Empate!";
 		}
+		break;
 	}
-			return 0;
+	return 0;
 
 }
 
