@@ -11,56 +11,128 @@ int main()
 	int Piedra = 1;
 	int Papel = 2;
 	int Tijera = 3;
-	int userChoice;
-	int cpuChoice;
+	int gameChoice, userChoice, cpuChoice;
+	int userPoint = 0;
+	int cpuPoint = 0;
+	string playResult;
 
-	srand(time(NULL));
+	
+	cout << "================================================================" << endl;
+	cout << "||                   PIEDRA, PAPEL O TIJERA!                  ||" << endl;
+	cout << "================================================================" << endl;
+	cout << "||                                                            ||" << endl;
+	cout << "||  Instrucciones:                                            ||" << endl;
+	cout << "|| -1 para juego nuevo.                                       ||" << endl;
+	cout << "|| -2 para salir.                                             ||" << endl;
+	cout << "||                                                            ||" << endl;
+	cout << "================================================================" << endl;
+	cout << "||      Creado por: Felix Pagan y Gustavo Lejardi - 2023      ||" << endl;
+	cout << "================================================================" << endl;
+	cout << "  Seleccion: ";
+	cin >> gameChoice;
 
-	cpuChoice = rand() % 3 + 1;
+	if (gameChoice == 2) //Seleccion para que el jugador pueda salir del juego.
+		return 0;
 
-	cout << "Escoje: 1 para Piedra, 2 para Papel o 3 para Tijera." << endl;
-	cout << cpuChoice;
-	cin >> userChoice;
+	if (gameChoice == 1) //Seleccion para empezar un juego nuevo.
 
-	switch (userChoice)
-	{
-	case 1:  //Piedra
-		if (userChoice && cpuChoice == 1) {
-			cout << "Empate!";
-		}
-		else if (userChoice && cpuChoice == 2) {
-			cout << "Perdiste!";
-		}
-		else {
-			cout << "Ganastes!!!";
-		}
-		break;
+		do {
+			system("cls"); //Limpia la pantalla.
+			
+			srand(time(NULL));
+			cpuChoice = rand() % 3 + 1; //Crea un numero aleatorio del 1 al 3 
 
-	case 2:  //Papel
-		if (userChoice && cpuChoice == 1) {
-			cout << "Ganastes!!!";
-		}
-		else if (userChoice && cpuChoice == 2) {
-			cout << "Empate!";
-		}
-		else {
-			cout << "Perdistes!";
-		}
-		break;
+			cout << "================================================================" << endl;
+			cout << "||                   PIEDRA, PAPEL O TIJERA!                  ||" << endl;
+			cout << "||        1-Piedra     2-Papel     3-Tijera    4-Salir        ||" << endl;
+			cout << "================================================================" << endl;
+			cout << "|| Puntuacion ||       Jugador: | " << userPoint << " |     Cpu: | " << cpuPoint << " |          ||" << endl; // Ense~a la puntuacion actual.
+			cout << "================================================================" << endl;
+			cout << endl;
+			cout << playResult << endl;
+			//cout << cpuChoice; // Se puede descomentar para saber el valor que el cpu genero.
+			cin >> userChoice; // Input del usuario para la jugada.
 
-	case 3:  //Tijera
-		if (userChoice && cpuChoice == 1) {
-			cout << "Perdistes!";
-		}
-		else if (userChoice && cpuChoice == 2) {
-			cout << "Ganastes!!!";
-		}
-		else {
-			cout << "Empate!";
-		}
-		break;
-	}
-	return 0;
+			switch (userChoice) // Seleccion de alternativas.
+			{
+			case 1:  //Piedra
+				if (userChoice && cpuChoice == 1) { //Cpu = Piedra
+					playResult = "| Jugador: Piedra | Cpu: Piedra | Empate! 0 puntos!";
 
+				}
+				else if (userChoice && cpuChoice == 2) { //Cpu = Papel
+					++cpuPoint;
+					playResult = "| Jugador: Piedra | Cpu: Papel | Perdiste! Cpu + 1 punto!";
+				}
+				else { //Cpu = Tijera
+					++userPoint;
+					playResult = "| Jugador: Piedra | Cpu: Tijera | Ganastes!!! + 1 punto!";
+				}
+				break;
+
+			case 2:  //Papel
+				if (userChoice && cpuChoice == 1) { //Cpu = Piedra
+					++userPoint;
+					playResult = "| Jugador: Papel | Cpu: Piedra | Ganastes!!! + 1 Punto!";
+				}
+				else if (userChoice && cpuChoice == 2) { //Cpu = Papel
+					playResult = "| Jugador: Papel | Cpu: Papel | Empate! 0 puntos!";
+				}
+				else { //Cpu = Tijera
+					++cpuPoint;
+					playResult = "| Jugador: Papel | Cpu: Tijera | Perdistes! Cpu + 1 punto!";
+				}
+				break;
+
+			case 3:  //Tijera
+				if (userChoice && cpuChoice == 1) { //Cpu = Piedra
+					++cpuPoint;
+					playResult = "| Jugador: Tijera | Cpu: Piedra | Perdistes! Cpu + 1 punto!";
+				}
+				else if (userChoice && cpuChoice == 2) { //Cpu = Papel
+					++userPoint;
+					playResult = "| Jugador: Tijera | Cpu: Papel | Ganastes!!! + 1 punto!";
+				}
+				else { //Cpu = Tijera
+					playResult = "| Jugador: Tijera | Cpu: Tijera | Empate! 0 puntos!";
+				}
+				break;
+
+			case 4: //Salir
+				return 0;
+				break;
+			}
+
+		} while (userPoint != 7 && cpuPoint != 7);
+
+		if (userPoint == 7) {
+			system("cls");
+			cout << "================================================================" << endl;
+			cout << "||                   PIEDRA, PAPEL O TIJERA!                  ||" << endl;
+			cout << "================================================================" << endl;
+			cout << "||                                                            ||" << endl;
+			cout << "||                                                            ||" << endl;
+			cout << "||                GANASTES!!! EN HORA BUENA!!!                ||" << endl;
+			cout << "||                                                            ||" << endl;
+			cout << "||                                                            ||" << endl;
+			cout << "================================================================" << endl;
+			cout << "||      Creado por: Felix Pagan y Gustavo Lejardi - 2023      ||" << endl;
+			cout << "================================================================" << endl;
+			return 0;
+		}
+
+		else 
+			system("cls");
+			cout << "================================================================" << endl;
+			cout << "||                   PIEDRA, PAPEL O TIJERA!                  ||" << endl;
+			cout << "================================================================" << endl;
+			cout << "||                                                            ||" << endl;
+			cout << "||                                                            ||" << endl;
+			cout << "||         PERDISTES!!! BUENA SUERTE EN LA PROXIMA!!!         ||" << endl;
+			cout << "||                                                            ||" << endl;
+			cout << "||                                                            ||" << endl;
+			cout << "================================================================" << endl;
+			cout << "||      Creado por: Felix Pagan y Gustavo Lejardi - 2023      ||" << endl;
+			cout << "================================================================" << endl;
+				
 }
-
