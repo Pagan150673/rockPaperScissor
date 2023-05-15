@@ -31,14 +31,31 @@ int main()
 	cout << "  Seleccion: ";
 	cin >> gameChoice;
 
+	while (gameChoice != 1 && gameChoice != 2) {
+		system("cls");
+		cout << "================================================================" << endl;
+		cout << "||                   PIEDRA, PAPEL O TIJERA!                  ||" << endl;
+		cout << "================================================================" << endl;
+		cout << "||                                                            ||" << endl;
+		cout << "||  Instrucciones:                                            ||" << endl;
+		cout << "|| -1 para juego nuevo.                                       ||" << endl;
+		cout << "|| -2 para salir.                                             ||" << endl;
+		cout << "||                                                            ||" << endl;
+		cout << "================================================================" << endl;
+		cout << "||      Creado por: Felix Pagan y Gustavo Lejardi - 2023      ||" << endl;
+		cout << "================================================================" << endl;
+		cout << "Seleccion Invalida, Seleccione de nuevo:";
+		cin >> gameChoice;
+	}
+
 	if (gameChoice == 2) //Seleccion para que el jugador pueda salir del juego.
 		return 0;
 
-	if (gameChoice == 1) //Seleccion para empezar un juego nuevo.
+	else if (gameChoice == 1) { //Seleccion para empezar un juego nuevo.
 
 		do {
 			system("cls"); //Limpia la pantalla.
-			
+
 			srand(time(NULL));
 			cpuChoice = rand() % 3 + 1; //Crea un numero aleatorio del 1 al 3 
 
@@ -121,18 +138,19 @@ int main()
 			return 0;
 		}
 
-		else 
+		else
 			system("cls");
-			cout << "================================================================" << endl;
-			cout << "||                   PIEDRA, PAPEL O TIJERA!                  ||" << endl;
-			cout << "================================================================" << endl;
-			cout << "||                                                            ||" << endl;
-			cout << "||                                                            ||" << endl;
-			cout << "||         PERDISTES!!! BUENA SUERTE EN LA PROXIMA!!!         ||" << endl;
-			cout << "||                                                            ||" << endl;
-			cout << "||                                                            ||" << endl;
-			cout << "================================================================" << endl;
-			cout << "||      Creado por: Felix Pagan y Gustavo Lejardi - 2023      ||" << endl;
-			cout << "================================================================" << endl;
-				
+		cout << "================================================================" << endl;
+		cout << "||                   PIEDRA, PAPEL O TIJERA!                  ||" << endl;
+		cout << "================================================================" << endl;
+		cout << "||                                                            ||" << endl;
+		cout << "||                                                            ||" << endl;
+		cout << "||         PERDISTES!!! BUENA SUERTE EN LA PROXIMA!!!         ||" << endl;
+		cout << "||                                                            ||" << endl;
+		cout << "||                                                            ||" << endl;
+		cout << "================================================================" << endl;
+		cout << "||      Creado por: Felix Pagan y Gustavo Lejardi - 2023      ||" << endl;
+		cout << "================================================================" << endl;
+	}
+	
 }
